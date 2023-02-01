@@ -44,7 +44,7 @@ const nextSlide = () => {
     pageContainer.style.transform = `translateX(${position}px)`;
     console.log(position)
 
-    if (counter >= 10) {
+    if (counter >= allItems.length) {
         counter = 0;
     }
     counter++;
@@ -80,29 +80,8 @@ const dotActiveSlide = (n) => {
 const dotActiveSlideClick = (i) => {
     dotActiveSlide(i)
     counter = i
+    position = -(i * PAGE_WIDTH)
 
-    switch (i) {
-        case 1:position = -((allItems.length - 9) * PAGE_WIDTH)
-            break;
-        case 2:position = -((allItems.length - 8) * PAGE_WIDTH)
-            break;
-        case 3:position = -((allItems.length - 7) * PAGE_WIDTH)
-            break;
-        case 4:position = -((allItems.length - 6) * PAGE_WIDTH)
-            break;
-        case 5:position = -((allItems.length - 5) * PAGE_WIDTH)
-            break;
-        case 6:position = -((allItems.length - 4) * PAGE_WIDTH)
-            break;
-        case 7:position = -((allItems.length - 3) * PAGE_WIDTH)
-            break;
-        case 8:position = -((allItems.length - 2) * PAGE_WIDTH)
-            break;
-        case 9:position = -((allItems.length - 1) * PAGE_WIDTH)
-            break;
-        case 10:position = -((allItems.length) * PAGE_WIDTH)
-            break;
-    }
     pageContainer.style.transition = 'all 0.7s ease-in-out';
     pageContainer.style.transform = `translateX(${position}px)`;
 }
